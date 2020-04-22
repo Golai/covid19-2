@@ -5,6 +5,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'test',
+    loadChildren: () => import('./pages/test/test.module').then( m => m.TestPageModule)
+  },
+  {
+    path: 'lugares',
+    loadChildren: () => import('./pages/lugares/lugares.module').then( m => m.LugaresPageModule)
   }
 ];
 @NgModule({

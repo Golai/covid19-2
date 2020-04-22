@@ -1,3 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{titulo}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="test" (click)="titulo='test'">
+      <ion-icon name="triangle"></ion-icon>
+      <ion-label>Test</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="visualizacion" (click)="titulo='visualizacion'">
+      <ion-icon name="ellipse"></ion-icon>
+      <ion-label>ver Test</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="verLugares" (click)="titulo='Lugares'">
+      <ion-icon name="square"></ion-icon>
+      <ion-label>lugares</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="registrarLugar" (click)="titulo='Nuevo Lugar'">
+      <ion-icon name="square"></ion-icon>
+      <ion-label>Nuevo lugar</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

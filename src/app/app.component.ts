@@ -11,7 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
-  titulo="login";
+  titulo="";
   public appPages = [];
 
   constructor(

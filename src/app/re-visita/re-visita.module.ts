@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ReVisitaPageRoutingModule } from './re-visita-routing.module';
 
 import { ReVisitaPage } from './re-visita.page';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReVisitaPageRoutingModule
+    ReVisitaPageRoutingModule,
+    NgxQRCodeModule
   ],
   declarations: [ReVisitaPage]
 })

@@ -5,5 +5,39 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="title">QR</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-item>
+      <ion-input type="text" placeholder="Digitar dato para generar QR" [(ngModel)]="qrData"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button color="dark" expand="block" shape="round" (click)="createCode()">
+      <ion-icon slot="start" name="barcode"></ion-icon>
+      Generar QR
+    </ion-button>
+    <br>
+    <ion-button color="dark" expand="block" shape="round" (click)="scanCode()">
+      <ion-icon slot="start" name="qr-code"></ion-icon>
+      Escanear QR 
+    </ion-button>
+    <br>
+    <br>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card *ngIf="createdCode">
+    <ion-card-content>
+      <ngx-qrcode [(qrc-value)]="createdCode"></ngx-qrcode>
+      <p> Valor del QR: {{createdCode}}
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card *ngIf="scanedCode">
+    <ion-card-content>
+      <p> Tu codigo es: {{scanedCode}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

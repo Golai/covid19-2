@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'visitas',
     loadChildren: () => import('./visitas/visitas.module').then( m => m.VisitasPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   }
 ];
 

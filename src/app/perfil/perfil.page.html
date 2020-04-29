@@ -4,43 +4,15 @@
   </ion-toolbar>
 </ion-header>
 
-<!--
-<ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="12">
-        <ion-img class="picture" [src]="picture"></ion-img>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <ion-text>
-          {{ username }}
-        </ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <ion-text>
-          {{ email  }}
-        </ion-text>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-button color="dark" expand="block" shape="round" (click)="signOut()">Cerrar Sesion</ion-button> 
-</ion-content>
--->
-
 <ion-content *ngIf='userReady'>
   <ion-card>
     <ion-img [src]="user.picture" class="foto"></ion-img>
-    <ion-card-header>
-      <ion-card-title>{{user.name}}</ion-card-title>
-    </ion-card-header>
     <ion-card-content>
-      <p>{{user.email}}</p>
+      <p class="text"> Nombre: </p>
+        {{user.name}} 
+      <p class="text"> Correo: </p>
+      {{user.email}}
     </ion-card-content>
-    <ion-button expand="block" (click)="doGoogleLogout()">Log Out</ion-button>
+    <ion-button  color="dark" expand="block" shape="round" (click)="googleLogout()">Log Out</ion-button>
   </ion-card>
 </ion-content>

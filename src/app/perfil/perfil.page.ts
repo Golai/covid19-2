@@ -26,20 +26,9 @@ export class PerfilPage implements OnInit {
   userReady: boolean = false;
 
   constructor(private router: Router,
-              private afAuth: AngularFireAuth,
-              private platform: Platform,
               private googlePlus: GooglePlus,
-              private usuarioService:UsuarioService,
               private nativeStorage: NativeStorage,
               public loadingController: LoadingController) { 
-                
-                /*
-    this.usuario = this.usuarioService.getUsuario();
-    console.log(this.usuario);
-    this.username = this.usuario.username;
-    this.email = this.usuario.email;
-    this.picture = this.usuario.picture;
-    */
   }
 
   async ngOnInit() {
@@ -61,25 +50,10 @@ export class PerfilPage implements OnInit {
       loading.dismiss();
     });
    }
-/*
-  cerrarSesion(){
-    this.loginPage.signOut();
-    this.router.navigate(['/login']);
-  }
 
-
-  signOut(){
-    this.afAuth.auth.signOut();
-    if(this.platform.is('cordova')){
-      this.googlePlus.logout(); 
-    }
-    this.router.navigate(['/login']);
-  }
-*/
-  doGoogleLogout(){
+  googleLogout(){
     this.googlePlus.logout()
     .then(res => {
-      //user logged out so we will remove him from the NativeStorage
       this.nativeStorage.remove('google_user');
       this.router.navigate(["/login"]);
     }, err => {

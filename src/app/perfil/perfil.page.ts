@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {UsuarioService} from '../provider/usuario.service';
 import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { LoadingController } from '@ionic/angular';
+import { AppComponent } from '../app.component';
 
-//firebase
-import { AngularFireAuth } from '@angular/fire/auth';
 
-import { Platform } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 @Component({
@@ -28,12 +25,13 @@ export class PerfilPage implements OnInit {
   constructor(private router: Router,
               private googlePlus: GooglePlus,
               private nativeStorage: NativeStorage,
-              public loadingController: LoadingController) { 
+              public loadingController: LoadingController,
+              public appComponent: AppComponent) { 
   }
 
   async ngOnInit() {
     const loading = await this.loadingController.create({
-      message: 'Please wait...'
+      message: 'Please waitEspera por favor...'
     });
      await loading.present();
      this.nativeStorage.getItem('google_user')
@@ -55,6 +53,9 @@ export class PerfilPage implements OnInit {
     this.googlePlus.logout()
     .then(res => {
       this.nativeStorage.remove('google_user');
+      this.appComponent.selectedIndex=0;
+      this.appComponent.titulo="Login";
+      this.appComponent.appPages=[];
       this.router.navigate(["/login"]);
     }, err => {
       console.log(err);

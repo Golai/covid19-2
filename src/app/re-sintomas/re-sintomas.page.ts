@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-re-sintomas',
@@ -7,6 +8,10 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./re-sintomas.page.scss'],
 })
 export class ReSintomasPage implements OnInit {
+
+  qrData = null;
+  createdCode = null;
+  scanedCode= null;
 
   public form = [
     { val: 'Fiebre alta', isChecked: false },
@@ -23,7 +28,8 @@ export class ReSintomasPage implements OnInit {
     { val: 'Ninguno de los anteriores', isChecked: false },
   ];
 
-  constructor(public alertController: AlertController) { }
+  constructor(public alertController: AlertController,
+              private barcodeScanner: BarcodeScanner) { }
 
   ngOnInit() {
   }
@@ -33,6 +39,14 @@ export class ReSintomasPage implements OnInit {
     message: 'Se regristraron sus datos',
     subHeader: 'Exitoso',
     buttons: ['Aceptar']}).then(alert=> alert.present());
+  }
+
+
+  // escanea el codigo qr
+  scanCode(){
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.scanedCode = barcodeData.text;
+    })
   }
 
 }

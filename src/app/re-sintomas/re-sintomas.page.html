@@ -6,6 +6,28 @@
 
 <ion-content>
   <ion-list>
+    <ion-item *ngFor="let entry of form" >
+      <ion-label>{{entry.val}}</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <ion-button color="light" expand="block" shape="round" (click)="scanCode()">
+    <ion-icon slot="start" name="qr-code"></ion-icon>
+      Escanear QR de direccion
+  </ion-button>
+  <br>
+  <br>
+  <ion-card *ngIf="scanedCode">
+    <ion-card-content>
+    <ion-label>Tu direccion es: {{scanedCode}}</ion-label>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-button color="dark" expand="block" shape="round" (click)="presentAlert()">Registrar</ion-button>
+</ion-content>
+<!--
+<ion-content>
+  <ion-list>
     <ion-item *ngFor="let entry of form">
       <ion-label>{{entry.val}}</ion-label>
       <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
@@ -14,3 +36,4 @@
   
   <ion-button color="dark" expand="block" shape="round" (click)="presentAlert()">Registrar</ion-button>
 </ion-content>
+-->

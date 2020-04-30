@@ -50,19 +50,18 @@ export class LoginPage implements OnInit {
 
   ngOnInit() { }
 
-
   async googleLogin() {
     const loading = await this.loadingController.create({
-      message: 'Please wait...'
+      message: 'Espera por favor...'
     });
     this.presentLoading(loading);
     this.googlePlus.login({
-      'scopes': '', // optional - space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
-      'webClientId': '873989763369-u4gvq52jpgvs0ea4ngn8h4ajf5j92teu.apps.googleusercontent.com', // optional - clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
-      'offline': true, // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
+      'scopes': '', 
+      'webClientId': '873989763369-u4gvq52jpgvs0ea4ngn8h4ajf5j92teu.apps.googleusercontent.com', 
+      'offline': true, 
     })
       .then(user => {
-        //save user data on the native storage
+        //guarda los datos del usuario en native storage
         this.nativeStorage.setItem('google_user', {
           name: user.displayName,
           email: user.email,

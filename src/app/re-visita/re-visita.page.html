@@ -6,6 +6,41 @@
 
 <ion-content>
   <ion-card>
+      <ion-card-header>
+        <ion-card-title class="title">QR</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+      <ion-item>
+        <ion-input type="text" placeholder="Digitar la direccion del Lugar" [(ngModel)]="qrData"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-input type="text" placeholder="Digitar la cuidad" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Digitar el departamento" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Digitar el barrio "></ion-input>
+      </ion-item>
+      <br>
+      <ion-button color="dark" expand="block" shape="round" (click)="createCode()">
+        <ion-icon slot="start" name="barcode"></ion-icon>
+        Generar QR
+      </ion-button>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="createdCode">
+      <ion-card-content>
+        <ngx-qrcode [(qrc-value)]="createdCode"></ngx-qrcode>
+        <p> Valor del QR: {{createdCode}}
+      </ion-card-content>
+    </ion-card>
+    
+</ion-content>
+<!--
+<ion-content>
+  <ion-card>
     <ion-card-header>
       <ion-card-title class="title">QR</ion-card-title>
     </ion-card-header>
@@ -41,3 +76,4 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+-->

@@ -12,8 +12,6 @@ import * as firebase from 'firebase/app';
 
 import { Platform } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 @Component({
   selector: 'app-login',
@@ -36,7 +34,6 @@ export class LoginPage implements OnInit {
     public loadingController: LoadingController,
     public alertController: AlertController,
     private afAuth: AngularFireAuth) {
-
 
     this.platform.ready().then(() => {
       document.addEventListener("backbutton", () => { 

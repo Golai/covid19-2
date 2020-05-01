@@ -5,5 +5,14 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-item *ngFor="let item of lugaresServiceMock">
+    <br>
+    Dirección: {{item.direccion}}
+    <br>
+    Ciudad: {{item.ciudad}}
+    <br>
+    Departamento: {{item.departamento}}
+    <br>
+    Barrio: {{item.barrio}}
+  </ion-item>
 </ion-content>

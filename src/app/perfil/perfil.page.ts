@@ -31,7 +31,7 @@ export class PerfilPage implements OnInit {
 
   async ngOnInit() {
     const loading = await this.loadingController.create({
-      message: 'Please waitEspera por favor...'
+      message: 'Espera por favor...'
     });
      await loading.present();
      this.nativeStorage.getItem('google_user')

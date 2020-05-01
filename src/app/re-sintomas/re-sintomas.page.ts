@@ -20,11 +20,6 @@ export class ReSintomasPage implements OnInit {
     { val: 'Dificultad para respirar', isChecked: false },
     { val: 'Fatiga', isChecked: false },
     { val: 'Escalofrio', isChecked: false },
-    { val: 'Fatiga', isChecked: false },
-    { val: 'Ninguno de los anteriores', isChecked: false },
-    { val: 'Fatiga', isChecked: false },
-    { val: 'Escalofrio', isChecked: false },
-    { val: 'Fatiga', isChecked: false },
     { val: 'Ninguno de los anteriores', isChecked: false },
   ];
 
@@ -36,11 +31,10 @@ export class ReSintomasPage implements OnInit {
 
   presentAlert() {
     const alert = this.alertController.create({
-    message: 'Se regristraron sus datos',
-    subHeader: 'Exitoso',
+    message: 'Se registraron sus sintomas',
+    subHeader:'Confirmación',
     buttons: ['Aceptar']}).then(alert=> alert.present());
   }
-
 
   // escanea el codigo qr
   scanCode(){

@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +31,8 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     AngularFireModule.initializeApp(firebaseConfig), 
     AngularFireAuthModule,
     RouterModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    HttpClientModule
   ],
   providers: [
     GooglePlus,
